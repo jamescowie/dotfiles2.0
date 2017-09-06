@@ -178,7 +178,7 @@ augroup markdown
 augroup END
 
 " Vim-Alchemist Configuration
-let g:alchemist#elixir_erlang_src = "/Users/amacgregor/Projects/Github/alchemist-source"
+let g:alchemist#elixir_erlang_src = "/Users/jcowie/Projects/Github/alchemist-source"
 let g:alchemist_tag_disable = 1
 
 " Vim-Supertab Configuration
@@ -186,7 +186,7 @@ let g:SuperTabDefaultCompletionType = "<C-X><C-O>"
 
 " Settings for Writting
 let g:pencil#wrapModeDefault = 'soft'   " default is 'hard'
-let g:languagetool_jar  = '/opt/languagetool/languagetool-commandline.jar'
+let g:languagetool_jar  = '/usr/local/bin/languagetool'
 
 " Vim-pencil Configuration
 augroup pencil
