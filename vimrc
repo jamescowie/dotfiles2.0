@@ -20,7 +20,7 @@ Plugin 'scrooloose/nerdtree'
 Plugin 'majutsushi/tagbar'
 Plugin 'ervandew/supertab'
 Plugin 'BufOnly.vim'
-Plugin 'wesQ3/vim-windowswap'
+" Plugin 'wesQ3/vim-windowswap'
 Plugin 'SirVer/ultisnips'
 Plugin 'junegunn/fzf.vim'
 Plugin 'junegunn/fzf'
@@ -100,6 +100,10 @@ Plugin 'effkay/argonaut.vim'
 Plugin 'ajh17/Spacegray.vim'
 Plugin 'atelierbram/Base2Tone-vim'
 Plugin 'colepeters/spacemacs-theme.vim'
+
+" Wiki 
+Plugin 'vimwiki/vimwiki'
+Plugin 'mattn/calendar-vim'
 
 call vundle#end()            " required
 filetype plugin indent on    " required
@@ -372,7 +376,7 @@ if get(g:, 'elite_mode')
 	nnoremap <Right> :vertical resize -2<CR>
 endif
 
-map <silent> <LocalLeader>ws :highlight clear ExtraWhitespace<CR>
+" map <silent> <LocalLeader>ws :highlight clear ExtraWhitespace<CR>
 
 " Advanced customization using autoload functions
 inoremap <expr> <c-x><c-k> fzf#vim#complete#word({'left': '15%'})
@@ -380,3 +384,31 @@ inoremap <expr> <c-x><c-k> fzf#vim#complete#word({'left': '15%'})
 " Vim-Alchemist Mappings
 autocmd FileType elixir nnoremap <buffer> <leader>h :call alchemist#exdoc()<CR>
 autocmd FileType elixir nnoremap <buffer> <leader>d :call alchemist#exdef()<CR>
+
+" WIKI configuration
+
+"set nocompatible
+"filetype plugin on
+"syntax on
+
+au BufRead,BufNewFile *.wiki set filetype=vimwiki
+:autocmd FileType vimwiki map d :VimwikiMakeDiaryNote
+function! ToggleCalendar()
+  execute ":Calendar"
+  if exists("g:calendar_open")
+    if g:calendar_open == 1
+      execute "q"
+      unlet g:calendar_open
+    else
+      g:calendar_open = 1
+    end
+  else
+    let g:calendar_open = 1
+  end
+endfunction
+:autocmd FileType vimwiki map c :call ToggleCalendar()
+
+
+
+
+
