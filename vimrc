@@ -36,6 +36,8 @@ Plugin 'scrooloose/nerdcommenter'
 Plugin 'sumpygump/php-documentor-vim'
 Plugin 'tacahiroy/ctrlp-funky'
 
+Bundle 'takac/vim-hardtime'
+
 " Generic Programming Support 
 Plugin 'jakedouglas/exuberant-ctags'
 Plugin 'honza/vim-snippets'
@@ -481,4 +483,7 @@ map <Leader>L :set invnumber<CR>
 
 au BufRead,BufNewFile *.php inoremap <buffer> <C-P> :call PhpDoc()<CR>
 au BufRead,BufNewFile *.php nnoremap <buffer> <C-P> :call PhpDoc()<CR>
-au BufRead,BufNewFile *.php vnoremap <buffer> <C-P> :call PhpDocRange()<CR>
+au BufRead,BufNewFile *.php vnoremap <buffer> <C-P> :call PhpDocRange()<CR>i
+
+" Enable hard mode to make learning vim faster 
+let g:hardtime_default_on = 1
