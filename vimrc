@@ -31,6 +31,10 @@ Plugin 'jeetsukumaran/vim-buffergator'
 Plugin 'gilsondev/searchtasks.vim'
 Plugin 'Shougo/neocomplete.vim'
 Plugin 'tpope/vim-dispatch'
+Plugin 'wincent/command-t'
+Plugin 'scrooloose/nerdcommenter'
+Plugin 'sumpygump/php-documentor-vim'
+Plugin 'tacahiroy/ctrlp-funky'
 
 " Generic Programming Support 
 Plugin 'jakedouglas/exuberant-ctags'
@@ -54,10 +58,18 @@ Plugin 'kablamo/vim-git-log'
 Plugin 'gregsexton/gitv'
 Plugin 'tpope/vim-fugitive'
 "Plugin 'jaxbot/github-issues.vim'
+Plugin 'airblade/vim-gitgutter'
 
 " PHP Support
 Plugin 'phpvim/phpcd.vim'
 Plugin 'tobyS/pdv'
+Plugin 'joonty/vdebug'
+Plugin 'arnaud-lb/vim-php-namespace'
+Plugin 'wdalmut/vim-phpunit'
+Plugin 'StanAngeloff/php.vim'
+Plugin 'shawncplus/phpcomplete.vim'
+
+
 
 " Erlang Support
 Plugin 'vim-erlang/vim-erlang-tags'
@@ -408,7 +420,65 @@ function! ToggleCalendar()
 endfunction
 :autocmd FileType vimwiki map c :call ToggleCalendar()
 
+"------  Buffers  ------
+"" Ctrl Left & Right move between buffers
+noremap <silent> <C-left> :bprev<CR>
+noremap <silent> <C-h> :bprev<CR>
+noremap <silent> <C-right> :bnext<CR>
+noremap <silent> <C-l> :bnext<CR>
 
+" Closes the current buffer
+nnoremap <silent> <Leader>q :Bclose<CR>
 
+" " Closes the current window
+nnoremap <silent> <Leader>Q <C-w>c
+"
+" "------  Fugitive  ------ 
+" "https://github.com/tpope/vim-fugitive
+nnoremap <Leader>gs :Gstatus<CR>
+nnoremap <Leader>gr :Gremove<CR>
+nnoremap <Leader>gl :Glog<CR>
+nnoremap <Leader>gb :Gblame<CR>
+nnoremap <Leader>gm :Gmove 
+nnoremap <Leader>gp :Ggrep 
+nnoremap <Leader>gR :Gread<CR>
+nnoremap <Leader>gg :Git 
+nnoremap <Leader>gd :Gdiff<CR>
+"
+" "------  Moving Between Windows  ------
+nnoremap <Leader>h <C-w>h
+nnoremap <Leader>l <C-w>l
+nnoremap <Leader>j <C-w>j
+nnoremap <Leader>k <C-w>k
+nnoremap <Leader>wo <C-w>o
+nnoremap <Leader>wv <C-w>v<C-w>l
+"nnoremap <Leader>ws <C-w>s
+"nnoremap <Leader>ww <C-w><C-w>
 
+" fuzzy method searching
+nnoremap <Leader>fu :CtrlPFunky<Cr>
+" narrow the list down with a word under cursor
+nnoremap <Leader>fU :execute 'CtrlPFunky ' . expand('<cword>')<Cr>
 
+" ,v = Paste
+map <Leader>v "+gP
+" " ,c = Copy
+map <Leader>c "+y
+" " F2 = Paste Toggle (in insert mode, pasting indented text behavior changes)
+set pastetoggle=<F2>
+" " ,T = Delete all Trailing space in file
+map <Leader>T :%s/\s\+$//<CR>
+" " ,U = Deletes Unwanted empty lines
+map <Leader>U :g/^$/d<CR>
+" " ,R = Converts tabs to spaces in document
+map <Leader>R :retab<CR>
+" " ,p = Runs PHP lint checker on current file
+map <Leader>p :! php -l %<CR>
+" " ,P = Runs PHP and executes the current file
+map <Leader>P :! php -q %<CR>
+" " ,L = Toggle line numbers
+map <Leader>L :set invnumber<CR>
+
+au BufRead,BufNewFile *.php inoremap <buffer> <C-P> :call PhpDoc()<CR>
+au BufRead,BufNewFile *.php nnoremap <buffer> <C-P> :call PhpDoc()<CR>
+au BufRead,BufNewFile *.php vnoremap <buffer> <C-P> :call PhpDocRange()<CR>

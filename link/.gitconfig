@@ -144,7 +144,7 @@
 
 [core]
 	quotepath = false
-    excludesfile = ~/.gitignore-global
+	excludesfile = /Users/jcowie/.gitignore-global
 	pager = diff-so-fancy | less --tabs=4 -RFX
 
     editor = vim
@@ -291,8 +291,14 @@
 	required = true
 [user]
 	email = james@jcowie.co.uk
-	name = James Cowie
+	name = jamescowie
 [github]
     user = jamescowie
 [commit]
 #	gpgsign = true
+[difftool "sourcetree"]
+	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
+	path = 
+[mergetool "sourcetree"]
+	cmd = /Applications/SourceTree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
+	trustExitCode = true
