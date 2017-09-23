@@ -70,25 +70,10 @@ Plugin 'airblade/vim-gitgutter'
 Plugin 'phpvim/phpcd.vim'
 Plugin 'tobyS/pdv'
 Plugin 'joonty/vdebug'
-Plugin 'arnaud-lb/vim-php-namespace'
 Plugin 'wdalmut/vim-phpunit'
-Plugin 'StanAngeloff/php.vim'
-Plugin 'shawncplus/phpcomplete.vim'
 Plugin 'qbbr/vim-symfony'
-
-"Bundle 'spf13/PIV'
 Bundle 'stephpy/vim-php-cs-fixer'
 Bundle 'vim-php/vim-php-refactoring'
-"Bundle 'tomphp/vim-phpdoc'
-"Bundle 'mikehaertl/pdv-standalone'
-
-"Bundle 'Shougo/unite.vim'
-Bundle 'docteurklein/php-getter-setter.vim'
-
-" Twig/Slim
-Bundle 'lunaru/vim-twig'
-Bundle 'slim-template/vim-slim'
-
 
 " Erlang Support
 Plugin 'vim-erlang/vim-erlang-tags'
@@ -507,53 +492,6 @@ au BufRead,BufNewFile *.php vnoremap <buffer> <C-P> :call PhpDocRange()<CR>i
 "
 "Custom PHP settings @Jcowie
 " phpDoc
-        autocmd FileType php inoremap <buffer> <LocalLeader>d <ESC>:call PhpDocSingle()<CR>i 
-        autocmd FileType php nnoremap <buffer> <LocalLeader>d :call PhpDocSingle()<CR> 
-        autocmd FileType php vnoremap <buffer> <LocalLeader>d :call PhpDocRange()<CR>
+" Cucumber
+autocmd FileType cucumber noremap <buffer> <LocalLeader>b :w!<CR>:!vendor/bin/behat %<CR>
 
-        " PHP Namespace remaps
-        autocmd FileType php noremap <buffer> <LocalLeader>n :call PhpInsertUse()<CR>
-        autocmd FileType php noremap <buffer> <LocalLeader>e :call PhpExpandClass()<CR>
-
-        " PHP Parsing & Checking commands
-        autocmd FileType php noremap <buffer> <C-M> :w!<CR>:!php %<CR>
-        autocmd FileType php noremap <buffer> <LocalLeader>l :w!<CR>:!php -l %<CR>
-        autocmd FileType php noremap <buffer> <LocalLeader>b :w!<CR>:!vendor/bin/behat<CR>
-        autocmd FileType php noremap <buffer> <LocalLeader>u :w!<CR>:!vendor/bin/phpunit<CR>
-        autocmd FileType php noremap <buffer> <LocalLeader>s :w!<CR>:!vendor/bin/phpspec run -v<CR>
-
-        " Cucumber
-        autocmd FileType cucumber noremap <buffer> <LocalLeader>b :w!<CR>:!vendor/bin/behat %<CR>
-
-        autocmd FileType php nnoremap <buffer> <f8> :exe ':!phpctags --flags="+aim" --exclude=".git" --exclude="vendor/pdepend" --exclude="composer.phar" --sort=yes --memory=-1 --recurse=yes -f "' . g:project_tags .'" .'<CR>
-        autocmd FileType php nnoremap <buffer> execute "set tags=" . g:project_tags
-
-        autocmd FileType php setlocal ts=4 sts=4 sw=4
-
-        " Strip trailing white space from .php files
-        autocmd BufWritePre *.php :%s/\s\+$//e
-
-        " Indentation rules
-        autocmd FileType php set expandtab
-
-        "autocmd  FileType  php setlocal omnifunc=phpcomplete_extended#CompletePHP
-
-        " PHPDoc settings
-        if !exists("g:pdv_cfg_Author")
-            let g:pdv_cfg_Author = "James Cowie <dev@theleadarchitect.com>"
-        endif
-
-        " Set up syntax checker
-        let g:syntastic_php_checkers=['php', 'vendor/bin/phpcs', 'vendor/bin/phpmd']
-
-        " Refactoring
-        let g:php_refactor_command='php ~/bin/refactor.phar'
-
-        " CS Fixer
-        let g:php_cs_fixer_path = "php-cs-fixer" 
-        let g:php_cs_fixer_level = "all"       
-        let g:php_cs_fixer_config = "default" 
-        let g:php_cs_fixer_php_path = "php"     
-        let g:php_cs_fixer_enable_default_mapping = 1
-        let g:php_cs_fixer_dry_run = 0
-        let g:php_cs_fixer_verbose = 1
