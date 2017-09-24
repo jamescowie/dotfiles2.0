@@ -1,5 +1,6 @@
 """""""""""""""""""""""""""""""""""""
-" Allan MacGregor Vimrc configuration 
+" James Cowie Vimrc configuration file.
+" Heavily inspired by @ Allan MacGregor
 """""""""""""""""""""""""""""""""""""
 set encoding=utf8
 
@@ -494,4 +495,54 @@ au BufRead,BufNewFile *.php vnoremap <buffer> <C-P> :call PhpDocRange()<CR>i
 " phpDoc
 " Cucumber
 autocmd FileType cucumber noremap <buffer> <LocalLeader>b :w!<CR>:!vendor/bin/behat %<CR>
+
+
+" Create split below
+nmap :sp :rightbelow sp<cr>
+
+highlight Search cterm=underline
+
+" Edit todo list for project
+nmap ,todo :e todo.txt<cr>
+
+" Open splits
+nmap vs :vsplit<cr>
+nmap sp :split<cr>
+
+" Create/edit file in the current directory
+nmap :ed :edit %:p:h/
+
+" Prepare a new PHP class
+function! Class()
+    let name = input('Class name? ')
+    let namespace = input('Any Namespace? ')
+
+    if strlen(namespace)
+        exec 'normal i<?php namespace ' . namespace . ';
+    else
+        exec 'normal i<?php
+    endif
+
+    " Open class
+    exec 'normal iclass ' . name . ' {^M}^[O^['
+
+    exec 'normal i^M    public function __construct()^M{^M ^M}^['
+endfunction
+nmap ,1  :call Class()<cr>
+
+" Add a new dependency to a PHP class
+function! AddDependency()
+    let dependency = input('Var Name: ')
+    let namespace = input('Class Path: ')
+
+    let segments = split(namespace, '\')
+    let typehint = segments[-1]
+
+    exec 'normal gg/construct^M:H^Mf)i, ' . typehint . ' $' . dependency . '^[/}^>O$this->^[a' . dependency . ' = $' . dependency . ';^[?{^MkOprotected $' . dependency . ';^M^[?{^MOuse ' . namespace . ';^M^['
+
+    " Remove opening comma if there is only one dependency
+    exec 'normal :%s/(, /(/g
+'
+endfunction
+nmap ,2  :call AddDependency()<cr>
 
