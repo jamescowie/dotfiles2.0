@@ -174,13 +174,16 @@ let g:hybrid_custom_term_colors = 1
 let g:hybrid_reduced_contrast = 1 
 
 " Syntastic Configuration
-set statusline+=%#warningmsg#
-set statusline+=%{SyntasticStatuslineFlag()}
-set statusline+=%*
+" @James hiding this as for PHP its too strict for now 
+"set statusline+=%#warningmsg#
+"set statusline+=%{SyntasticStatuslineFlag()}
+"set statusline+=%*
 
-let g:syntastic_always_populate_loc_list = 1
-let g:syntastic_auto_loc_list = 1
-let g:syntastic_check_on_open = 1
+"let g:syntastic_always_populate_loc_list = 1
+"let g:syntastic_auto_loc_list = 1
+"let g:syntastic_check_on_open = 1
+
+" @James below are always commented 
 " let g:syntastic_check_on_wq = 0
 " let g:syntastic_enable_elixir_checker = 1
 " let g:syntastic_elixir_checkers = ["elixir"]
@@ -545,4 +548,6 @@ function! AddDependency()
 '
 endfunction
 nmap ,2  :call AddDependency()<cr>
+
+
 
