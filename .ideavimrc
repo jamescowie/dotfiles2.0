@@ -1,0 +1,130 @@
+let mapleader = ','
+
+set ignorecase smartcase
+"set hlsearch
+set showmode
+set scrolloff=5
+set history=1000
+set surround
+set incsearch
+set relativenumber
+set smartcase
+set hlsearch
+
+" clear the search buffer when hitting return
+ nnoremap <Leader>/ :nohlsearch<cr>
+
+" To copy text to the end-of-line, press Y. 
+" This mapping sets up Y to be consistent with
+" the C and D operators, which act from the cursor 
+" to the end of the line. The default behavior of Y 
+" is to yank the whole line.
+nnoremap Y y$
+
+" Shortcut for escape
+imap jj <Esc>
+
+" When in normal mode and I hit Enter, 
+" then save file please
+nmap <CR> :write<CR>
+
+" Quick window navigation
+map <C-J> <C-W>j
+map <C-K> <C-W>k
+map <C-L> <C-W>l
+map <C-H> <C-W>h
+
+" Shortcut for copying to/from System Clipboard
+vmap <Leader>y "+y
+vmap <Leader>d "+d
+nmap <Leader>p "+p
+nmap <Leader>P "+P
+
+" Splitting Windows
+nmap <Leader>\ :vsplit<CR>
+nmap <Leader>v :vsplit<CR>
+nmap <Leader>- :split<CR>
+nmap <Leader>h :split<CR>
+
+" Project Shortcuts
+" =================
+" Close Project
+nmap <Leader>q :action CloseProject<CR>
+
+" Some Action commands to memic my native vim 
+" For a list of :action try :actionlist
+" ===========================================
+" Hide open panels
+nmap <Leader>f :action HideAllWindows<CR> 
+" Open Global Find Dialog box
+nmap <Leader><Leader>f :action FindInPath<CR>
+" Open recent project dialog box
+nmap <Leader><Leader>p :action ManageRecentProjects<CR>
+" Mapping to mimic BufferExplorer
+nmap <Leader>be :action Switcher<CR>
+" Toggle code minimap
+nmap <Leader>m :action CodeGlance.toggle<CR>
+" Nerdtree want to be
+nmap <Leader>nt :action ActivateProjectToolWindow<CR>
+
+"Coding Formating
+" ===============
+nnoremap <leader>cf :action ReformatCode<CR>
+nnoremap <leader>pcf :action Tool_External Tools_PHP CS Fixer<CR>
+
+
+" XDebug Shortcuts
+nmap <Leader>xl :action PhpListenDebugAction<CR>
+nmap <Leader>bp :action ToggleLineBreakpoint<CR>
+" Jump to Source
+nmap <C>] :action XDebugger.JumpToSource
+
+" Some Git Shortcuts for view status, pull, and branches
+" Mapping mimic Fugitive in my native vim
+nmap <Leader>gs :action ChangesView.Commit<CR>
+nmap <Leader>gc :action ChangesView.Commit<CR>
+nmap <Leader>ga :action Git.Add<CR>
+nmap <Leader>gp :action Git.Pull<CR>
+nmap <Leader>gb :action Annotate<CR>
+nmap <Leader>gl :action Git.Log<CR>
+nmap <Leader>go :action Github.Open.In.Browser<CR>
+nmap <Leader>br :action Git.Branches<CR>
+
+" View my customize Quicklist
+nmap <Leader>l :action QuickList.MyQuickList<CR>
+
+" AceJump Plugin - Jump to Character
+nmap <Leader><Leader>w :action AceJumpAction<CR>
+
+" Commenting
+nmap <Leader>c<Space> :action CommentByLineComment<CR>
+nmap <Leader>cs<Space> :action CommentByBlockComment<CR>
+nmap <Leader>rt :action Refactorings.QuickListPopupAction<CR>
+"nmap csw' :action Macro.surround_with_single_quote<CR>
+
+" Move visual block
+vnoremap J :m '>+1<CR>gv=gv
+vnoremap K :m '<-2<CR>gv=gv
+
+" Put search results in the middle of the screen
+nnoremap n nzz
+nnoremap N Nzz
+
+" Laravel Mappings
+" ================
+" Open and edit routes file
+nmap <Leader>lr :e app/Http/routes.php<CR>
+nmap <Leader>lca :e config/app.php<cr>
+nmap <Leader>lcd :e config/database.php<cr>
+nmap <Leader>lc :e composer.json<cr>
+nmap <Leader>le :e .env<cr>
+
+nnoremap n :action FindNext<CR>
+nnoremap N :action FindPrevious<CR>
+nnoremap U :action $Redo<CR>
+nnoremap ; :action AceJumpAction<CR>
+nnoremap <Space>o :action GotoClass<CR>
+nnoremap <Space>O :action GotoFile<CR>
+nnoremap <Space>d :action CloseContent<CR>
+nnoremap <Space>j :action RecentFiles<CR>
+nnoremap <Space>k :action FileStructurePopup<CR>
