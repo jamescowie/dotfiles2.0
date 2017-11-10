@@ -1,4 +1,4 @@
 let g:netrw_dirhistmax  =10
 let g:netrw_dirhist_cnt =2
-let g:netrw_dirhist_1='/Users/amacgregor/Projects/Writing/Blogs/coderoncode/_templates'
-let g:netrw_dirhist_2='/Users/amacgregor/Projects/Writing/Blogs/coderoncode/_plugins'
+let g:netrw_dirhist_1='/Users/jcowie/Projects/Projects/Projects/Learning/Katas/Primes/15-12-2016'
+let g:netrw_dirhist_2='/Users/jcowie/Projects/Projects/Projects/Learning/Katas/Primes/15-12-2016/src'

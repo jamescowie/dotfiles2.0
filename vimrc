@@ -1,8 +1,12 @@
-"""""""""""""""""""""""""""""""""""""
-" James Cowie Vimrc configuration file.
-" Heavily inspired by @ Allan MacGregor
-"""""""""""""""""""""""""""""""""""""
+set nocompatible
+syntax on
+set nowrap
 set encoding=utf8
+
+set guioptions-=T " Removes top toolbar
+set guioptions-=r " Removes right hand scroll bar
+set go-=L " Removes left hand scroll bar
+set linespace=15
 
 """" START Vundle Configuration 
 
@@ -17,110 +21,123 @@ call vundle#begin()
 Plugin 'gmarik/Vundle.vim'
 
 " Utility
-Plugin 'scrooloose/nerdtree'
-Plugin 'majutsushi/tagbar'
-Plugin 'ervandew/supertab'
 Plugin 'BufOnly.vim'
-" Plugin 'wesQ3/vim-windowswap'
-Plugin 'SirVer/ultisnips'
-Plugin 'junegunn/fzf.vim'
 Plugin 'junegunn/fzf'
-Plugin 'godlygeek/tabular'
-Plugin 'ctrlpvim/ctrlp.vim'
 Plugin 'benmills/vimux'
-Plugin 'jeetsukumaran/vim-buffergator'
-Plugin 'gilsondev/searchtasks.vim'
-Plugin 'Shougo/neocomplete.vim'
+Plugin 'mattn/emmet-vim'
+Plugin 'junegunn/fzf.vim'
+Plugin 'SirVer/ultisnips'
+Plugin 'ervandew/supertab'
+Plugin 'godlygeek/tabular'
+Plugin 'majutsushi/tagbar'
+Plugin 'ctrlpvim/ctrlp.vim'
 Plugin 'tpope/vim-dispatch'
-Plugin 'wincent/command-t'
-Plugin 'scrooloose/nerdcommenter'
-Plugin 'sumpygump/php-documentor-vim'
-Plugin 'tacahiroy/ctrlp-funky'
-
-Bundle 'takac/vim-hardtime'
+Plugin 'scrooloose/nerdtree'
+"Plugin 'Shougo/neocomplete.vim'
+Plugin 'jeetsukumaran/vim-buffergator'
 
 " Generic Programming Support 
-Plugin 'jakedouglas/exuberant-ctags'
+Plugin 'elzr/vim-json'
+Plugin 'mattn/gist-vim'
+Plugin 'neomake/neomake'
+Plugin 'janko-m/vim-test'
+Plugin 'mattn/webapi-vim'
 Plugin 'honza/vim-snippets'
 Plugin 'Townk/vim-autoclose'
+Plugin 'luochen1990/rainbow'
 Plugin 'tomtom/tcomment_vim'
-Plugin 'tobyS/vmustache'
-Plugin 'janko-m/vim-test'
+Plugin 'airblade/vim-gitgutter'
 Plugin 'maksimr/vim-jsbeautify'
 Plugin 'vim-syntastic/syntastic'
-Plugin 'neomake/neomake'
+Plugin 'easymotion/vim-easymotion'
+Plugin 'jakedouglas/exuberant-ctags'
 
 " Markdown / Writting
+Plugin 'LanguageTool'
 Plugin 'reedes/vim-pencil'
 Plugin 'tpope/vim-markdown'
 Plugin 'jtratner/vim-flavored-markdown'
-Plugin 'LanguageTool'
-
-Plugin 'tpope/vim-projectionist'
-Plugin 'noahfrederick/vim-composer'
-"Plugin 'noahfrederick/vim-laravel'
 
 " Git Support
-Plugin 'kablamo/vim-git-log'
 Plugin 'gregsexton/gitv'
 Plugin 'tpope/vim-fugitive'
+Plugin 'kablamo/vim-git-log'
 "Plugin 'jaxbot/github-issues.vim'
-Plugin 'airblade/vim-gitgutter'
 
 " PHP Support
 Plugin 'phpvim/phpcd.vim'
-Plugin 'tobyS/pdv'
-Plugin 'joonty/vdebug'
-Plugin 'wdalmut/vim-phpunit'
-Plugin 'qbbr/vim-symfony'
-Bundle 'stephpy/vim-php-cs-fixer'
-Bundle 'vim-php/vim-php-refactoring'
+Plugin 'arnaud-lb/vim-php-namespace'
 
 " Erlang Support
 Plugin 'vim-erlang/vim-erlang-tags'
 Plugin 'vim-erlang/vim-erlang-runtime'
-Plugin 'vim-erlang/vim-erlang-omnicomplete'
 Plugin 'vim-erlang/vim-erlang-compiler'
+Plugin 'vim-erlang/vim-erlang-omnicomplete'
 
 " Elixir Support 
-Plugin 'elixir-lang/vim-elixir'
-Plugin 'avdgaag/vim-phoenix'
-Plugin 'mmorearty/elixir-ctags'
-Plugin 'mattreduce/vim-mix'
 Plugin 'BjRo/vim-extest'
-Plugin 'frost/vim-eh-docs'
-Plugin 'slashmili/alchemist.vim'
 Plugin 'tpope/vim-endwise'
+Plugin 'frost/vim-eh-docs'
+Plugin 'mattreduce/vim-mix'
+Plugin 'avdgaag/vim-phoenix'
+Plugin 'elixir-lang/vim-elixir'
+Plugin 'mmorearty/elixir-ctags'
+Plugin 'slashmili/alchemist.vim'
 Plugin 'jadercorrea/elixir_generator.vim'
-
-" Elm Support
-Plugin 'lambdatoast/elm.vim'
 
 " Theme / Interface
 Plugin 'AnsiEsc.vim'
-Plugin 'ryanoasis/vim-devicons'
-Plugin 'vim-airline/vim-airline'
-Plugin 'vim-airline/vim-airline-themes'
 Plugin 'sjl/badwolf'
 Plugin 'tomasr/molokai'
 Plugin 'morhetz/gruvbox'
-Plugin 'zenorocha/dracula-theme', {'rtp': 'vim/'}
-Plugin 'junegunn/limelight.vim'
-Plugin 'mkarmona/colorsbox'
-Plugin 'romainl/Apprentice'
-Plugin 'Lokaltog/vim-distinguished'
-Plugin 'chriskempson/base16-vim'
 Plugin 'w0ng/vim-hybrid'
-Plugin 'AlessandroYorba/Sierra'
-Plugin 'daylerees/colour-schemes'
+Plugin 'romainl/Apprentice'
+Plugin 'mkarmona/colorsbox'
 Plugin 'effkay/argonaut.vim'
 Plugin 'ajh17/Spacegray.vim'
+Plugin 'AlessandroYorba/Sierra'
+Plugin 'AlessandroYorba/Alduin'
+Plugin 'gosukiwi/vim-atom-dark'
+Plugin 'whatyouhide/vim-gotham'
+Plugin 'junegunn/limelight.vim'
+Plugin 'ryanoasis/vim-devicons'
+Plugin 'vim-airline/vim-airline'
+Plugin 'nanotech/jellybeans.vim'
+Plugin 'chriskempson/base16-vim'
+Plugin 'daylerees/colour-schemes'
 Plugin 'atelierbram/Base2Tone-vim'
+Plugin 'Lokaltog/vim-distinguished'
 Plugin 'colepeters/spacemacs-theme.vim'
+Plugin 'vim-airline/vim-airline-themes'
+Plugin 'zenorocha/dracula-theme', {'rtp': 'vim/'}
 
-" Wiki 
+Plugin 'Gundo'
+Plugin 'TwitVim'
+Plugin 'tobyS/pdv'
+Plugin 'rking/ag.vim'
+Plugin 'posva/vim-vue'
+Plugin 'tobyS/vmustache'
+Plugin 'mbbill/undotree'
+Plugin 'bufexplorer.zip'
+Plugin 'tpope/vim-eunuch'
+Plugin 'tpope/vim-rhubarb'
+Plugin 'tpope/vim-surround'
+" Plugin 'gcmt/wildfire.vim'
+Plugin 'Shougo/neocomplcache'
+Plugin 'stephpy/vim-php-cs-fixer'
+Plugin 'rhysd/conflict-marker.vim'
+Plugin 'mattesgroeger/vim-bookmarks'
+Plugin 'ludovicchabant/vim-gutentags'
 Plugin 'vimwiki/vimwiki'
-Plugin 'mattn/calendar-vim'
+
+Plugin 'Shougo/deoplete.nvim'
+Plugin 'phpactor/phpactor'
+
+" OSX stupid backspace fix
+set backspace=indent,eol,start
+set directory=~/.vimswap//
+set backupdir=~/.vimbackup//
+
 
 call vundle#end()            " required
 filetype plugin indent on    " required
@@ -129,13 +146,10 @@ filetype plugin indent on    " required
 """""""""""""""""""""""""""""""""""""
 " Configuration Section
 """""""""""""""""""""""""""""""""""""
-set nowrap
-
-" OSX stupid backspace fix
-set backspace=indent,eol,start
 
 " Show linenumbers
 set number
+set ruler
 
 " Set Proper Tabs
 set tabstop=4
@@ -143,25 +157,101 @@ set shiftwidth=4
 set smarttab
 set expandtab
 
-" Always display the status line
-set laststatus=2
-
-" Enable Elite mode, No ARRRROWWS!!!!
-let g:elite_mode=1
+set list
+set nowrap                      " Do not wrap long lines
+set backup                      " Backups are nice ...
+set mouse=a
+set hlsearch                    " Highlight search terms
+set wildmenu                    " Show list instead of just completing
+set undofile                    " So is persistent undo ...
+set expandtab                   " Tabs are spaces, not tabs
+set showmatch                   " Show matching brackets/parenthesis
+set incsearch                   " Find as you type search
+set smartcase                   " Case sensitive when uc present
+set tabstop=4                   " An indentation every four columns
+set ignorecase                  " Case insensitive search
+set autoindent                  " Indent at the same level of the previous line
+set splitright                  " Puts new vsplit windows to the right of the current
+set splitbelow                  " Puts new split windows to the bottom of the current
+set linespace=0                 " No extra spaces between rows
+set scrolloff=3                 " Minimum lines to keep above and below cursor
+set scrolljump=5                " Lines to scroll when cursor leaves screen
+set nojoinspaces                " Prevents inserting two spaces after punctuation on a join (J)
+set softtabstop=4               " Let backspace delete indent
+set relativenumber
+set winminheight=0              " Windows can be 0 line high
+set undolevels=1000             " Maximum number of changes that can be undone
+set undoreload=10000            " Maximum number lines to save for undo on a buffer reload
+set whichwrap=b,s,h,l,<,>,[,]   " Backspace and cursor keys wrap too
+set backspace=indent,eol,start  " Backspace for dummies
+set wildmode=list:longest,full  " Command <Tab> completion, list matches, then longest common part, then all.
+set listchars=tab:›\ ,trail:•,extends:#,nbsp:. " Highlight problematic whitespace
+set spell spelllang=en_us
 
 " Enable highlighting of the current line
 set cursorline
 
 " Theme and Styling 
-syntax on
 set t_Co=256
+set background=dark
 
-" if (has("termguicolors"))
-"   set termguicolors
-" endif
+if (has("termguicolors"))
+  set termguicolors
+endif
+
 
 let base16colorspace=256  " Access colors present in 256 colorspace
-colorscheme spacegray
+"""Colorschemes I like"
+"colorscheme spacegray
+" colorscheme spacemacs-theme
+" color murphy
+" colorscheme southernlights
+" colorscheme vividchalk
+" colorscheme railscasts
+" colorscheme gotham256
+" colorscheme darkocean
+" colorscheme xoria256
+" colorscheme jellybeans
+" colorscheme atom-dark-256
+" let g:alduin_Shout_Become_Ethereal = 1
+" colorscheme alduin
+" colorscheme gruvbox
+" colorscheme distinguished
+colorscheme molokai
+
+
+hi Normal ctermbg=none
+
+set pastetoggle=<F12>
+
+" Remap the leader key
+let mapleader = ','
+" let mapleader = ' '
+
+" General Mappings "
+map <PageUp> :tabp<CR>
+map <PageDown> :tabn<CR>
+map <silent> <Leader>cd :cd %:p:h<CR>
+
+" Map Different Saves
+nnoremap <silent> <C-S>          :update<CR>
+vnoremap <silent> <C-S>         <C-C>:update<CR>
+inoremap <silent> <C-S>         <C-O>:update<CR>
+nnoremap <silent> <D-S>          :update<CR>
+vnoremap <silent> <D-S>         <C-C>:update<CR>
+inoremap <silent> <D-S>         <C-O>:update<CR>
+nnoremap <CR> :w<CR>
+
+" Easier Navigation
+nmap <C-J> <C-W><C-J>
+nmap <C-K> <C-W><C-K>
+nmap <C-H> <C-W><C-H>
+nmap <C-L> <C-W><C-L>
+"map <C-J> <C-W>j<C-W>_
+"map <C-K> <C-W>k<C-W>_
+"map <C-L> <C-W>l<C-W>_
+"map <C-H> <C-W>h<C-W>_
+
  
 let g:spacegray_underline_search = 1
 let g:spacegray_italicize_comments = 1
@@ -173,24 +263,64 @@ let g:airline_theme='hybrid'
 let g:hybrid_custom_term_colors = 1
 let g:hybrid_reduced_contrast = 1 
 
+:au FocusLost * :set number
+:au FocusGained * :set relativenumber
+autocmd InsertEnter * :set number
+autocmd InsertLeave * :set relativenumber
+
+
 " Syntastic Configuration
-" @James hiding this as for PHP its too strict for now 
-"set statusline+=%#warningmsg#
-"set statusline+=%{SyntasticStatuslineFlag()}
-"set statusline+=%*
+set statusline=%<%f\                     " Filename
+set statusline+=%w%h%m%r                 " Options
+set statusline+=%{fugitive#statusline()} " Git Hotness
+set statusline+=\ [%{&ff}/%Y]            " Filetype
+set statusline+=\ [%{getcwd()}]          " Current dir
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
+set statusline+=%=%-14.(%l,%c%V%)\ %p%%  " Right aligned file nav info
 
-"let g:syntastic_always_populate_loc_list = 1
-"let g:syntastic_auto_loc_list = 1
-"let g:syntastic_check_on_open = 1
 
-" @James below are always commented 
-" let g:syntastic_check_on_wq = 0
-" let g:syntastic_enable_elixir_checker = 1
-" let g:syntastic_elixir_checkers = ["elixir"]
+let g:syntastic_always_populate_loc_list = 0
+let g:syntastic_auto_loc_list = 0
+let g:syntastic_check_on_open = 0
+let g:syntastic_check_on_wq = 0
+let g:syntastic_php_checkers = ['php', 'phpcs', 'phpmd']
+
+"NERDTree Mappings
+nmap <leader>nt :NERDTreeToggle<CR>:NERDTreeMirror<CR>
+nmap <leader>1 :NERDTreeToggle<CR>:NERDTreeMirror<CR>
+nmap <F2> :NERDTreeToggle<CR>:NERDTreeMirror<CR>
+nmap <D-1> :NERDTreeToggle<CR>:NERDTreeMirror<CR>
+map <C-e> <plug>NERDTreeTabsToggle<CR>
+map <leader>e :NERDTreeFind<CR>
+let NERDTreeDirArrows=0
+let NERDTreeHijackNetrw=1
+let NERDTreeShowBookmarks=1
+let NERDTreeIgnore=['\.py[cd]$', '\~$', '\.swo$', '\.swp$', '^\.git$', '^\.hg$', '^\.svn$', '\.bzr$']
+let NERDTreeChDirMode=2
+let NERDTreeQuitOnOpen=0
+let NERDTreeMouseMode=2
+let NERDTreeShowHidden=0
+let NERDTreeKeepTreeInNewTab=1
+let g:nerdtree_tabs_open_on_gui_startup=0
+autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
+
+" Initialize NERDTree as needed
+function! NERDTreeInitAsNeeded()
+    redir => bufoutput
+    buffers!
+    redir END
+    let idx = stridx(bufoutput, "NERD_tree")
+    if idx > -1
+        NERDTreeMirror
+        NERDTreeFind
+        wincmd l
+    endif
+endfunction
 
 " Neomake settings
 autocmd! BufWritePost * Neomake
-let g:neomake_elixir_enabled_makers = ['mix', 'credo', 'dogma']
 
 " Vim-PDV Configuration 
 let g:pdv_template_dir = $HOME ."/.vim/bundle/pdv/templates_snip"
@@ -201,8 +331,12 @@ augroup markdown
     au BufNewFile,BufRead *.md,*.markdown setlocal filetype=ghmarkdown
 augroup END
 
+au BufRead,BufNewFile *.twig set filetype=html
+
+" Github Issues Configuration
+let g:github_access_token = ""
+
 " Vim-Alchemist Configuration
-let g:alchemist#elixir_erlang_src = "/Users/jcowie/Projects/Github/alchemist-source"
 let g:alchemist_tag_disable = 1
 
 " Vim-Supertab Configuration
@@ -210,7 +344,7 @@ let g:SuperTabDefaultCompletionType = "<C-X><C-O>"
 
 " Settings for Writting
 let g:pencil#wrapModeDefault = 'soft'   " default is 'hard'
-let g:languagetool_jar  = '/usr/local/bin/languagetool'
+let g:languagetool_jar  = '~/bin/languagetool/languagetool.jar'
 
 " Vim-pencil Configuration
 augroup pencil
@@ -226,27 +360,24 @@ let g:UltiSnipsJumpForwardTrigger="<c-b>"
 let g:UltiSnipsJumpBackwardTrigger="<c-z>"
 let g:UltiSnipsEditSplit="vertical" " If you want :UltiSnipsEdit to split your window.
 
-" Vim-Test Configuration
-let test#strategy = "vimux"
-
 " Neocomplete Settings
-let g:acp_enableAtStartup = 0
-let g:neocomplete#enable_at_startup = 1
-let g:neocomplete#enable_smart_case = 1
-let g:neocomplete#sources#syntax#min_keyword_length = 3
+"let g:acp_enableAtStartup = 0
+"let g:neocomplete#enable_at_startup = 1
+"let g:neocomplete#enable_smart_case = 1
+"let g:neocomplete#sources#syntax#min_keyword_length = 3
 
 " Define dictionary.
-let g:neocomplete#sources#dictionary#dictionaries = {
-    \ 'default' : '',
-    \ 'vimshell' : $HOME.'/.vimshell_hist',
-    \ 'scheme' : $HOME.'/.gosh_completions'
+"let g:neocomplete#sources#dictionary#dictionaries = {
+"    \ 'default' : '',
+"    \ 'vimshell' : $HOME.'/.vimshell_hist',
+"    \ 'scheme' : $HOME.'/.gosh_completions'
         \ }
 
 " Define keyword.
-if !exists('g:neocomplete#keyword_patterns')
-    let g:neocomplete#keyword_patterns = {}
-endif
-let g:neocomplete#keyword_patterns['default'] = '\h\w*'
+"if !exists('g:neocomplete#keyword_patterns')
+"    let g:neocomplete#keyword_patterns = {}
+"endif
+"let g:neocomplete#keyword_patterns['default'] = '\h\w*'
 
 function! s:my_cr_function()
   return (pumvisible() ? "\<C-y>" : "" ) . "\<CR>"
@@ -269,35 +400,16 @@ autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
 autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
 
 " Enable heavy omni completion.
-if !exists('g:neocomplete#sources#omni#input_patterns')
-  let g:neocomplete#sources#omni#input_patterns = {}
-endif
+"if !exists('g:neocomplete#sources#omni#input_patterns')
+"  let g:neocomplete#sources#omni#input_patterns = {}
+"endif
 "let g:neocomplete#sources#omni#input_patterns.php = '[^. \t]->\h\w*\|\h\w*::'
 "let g:neocomplete#sources#omni#input_patterns.c = '[^.[:digit:] *\t]\%(\.\|->\)'
 "let g:neocomplete#sources#omni#input_patterns.cpp = '[^.[:digit:] *\t]\%(\.\|->\)\|\h\w*::'
 
 " For perlomni.vim setting.
 " https://github.com/c9s/perlomni.vim
-let g:neocomplete#sources#omni#input_patterns.perl = '\h\w*->\h\w*\|\h\w*::'
-
-" Elixir Tagbar Configuration
-let g:tagbar_type_elixir = {
-    \ 'ctagstype' : 'elixir',
-    \ 'kinds' : [
-        \ 'f:functions',
-        \ 'functions:functions',
-        \ 'c:callbacks',
-        \ 'd:delegates',
-        \ 'e:exceptions',
-        \ 'i:implementations',
-        \ 'a:macros',
-        \ 'o:operators',
-        \ 'm:modules',
-        \ 'p:protocols',
-        \ 'r:records',
-        \ 't:tests'
-    \ ]
-    \ }
+"let g:neocomplete#sources#omni#input_patterns.perl = '\h\w*->\h\w*\|\h\w*::'
 
 " Fzf Configuration
 " This is the default extra key bindings
@@ -345,9 +457,34 @@ map <C-m> :TagbarToggle<CR>
 inoremap <expr> <c-j> ("\<C-n>")
 inoremap <expr> <c-k> ("\<C-p>")
 
+""" PHP Things
+" Import use statements
+function! IPhpInsertUse()
+    call PhpInsertUse()
+    call feedkeys('a',  'n')
+endfunction
+autocmd FileType php inoremap <Leader>u <Esc>:call IPhpInsertUse()<CR>
+autocmd FileType php noremap <Leader>u :call PhpInsertUse()<CR>
+" Expand name to fully qualified
+function! IPhpExpandClass()
+    call PhpExpandClass()
+    call feedkeys('a', 'n')
+endfunction
+autocmd FileType php inoremap <Leader>e <Esc>:call IPhpExpandClass()<CR>
+autocmd FileType php noremap <Leader>e :call PhpExpandClass()<CR>
+" Sort use statements alphabetically
+" autocmd FileType php inoremap <Leader>s <Esc>:call PhpSortUse()<CR>
+" autocmd FileType php noremap <Leader>s :call PhpSortUse()<CR>
+
+"Sort PHP use statements
+"http://stackoverflow.com/questions/11531073/how-do-you-sort-a-range-of-lines-by-length
+vmap <silent><Leader>su ! awk '{ print length(), $0 \| "sort -n \| cut -d\\  -f2-" }'<cr>
+
+let g:php_namespace_sort_after_insert = 1
+
 " Neocomplete Plugin mappins
-inoremap <expr><C-g>     neocomplete#undo_completion()
-inoremap <expr><C-l>     neocomplete#complete_common_string()
+"inoremap <expr><C-g>     neocomplete#undo_completion()
+"inoremap <expr><C-l>     neocomplete#complete_common_string()
 
 " Recommended key-mappings.
 " <CR>: close popup and save indent.
@@ -357,8 +494,8 @@ inoremap <silent> <CR> <C-r>=<SID>my_cr_function()<CR>
 inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
 
 " <C-h>, <BS>: close popup and delete backword char.
-inoremap <expr><C-h> neocomplete#smart_close_popup()."\<C-h>"
-inoremap <expr><BS> neocomplete#smart_close_popup()."\<C-h>"
+"inoremap <expr><C-h> neocomplete#smart_close_popup()."\<C-h>"
+"inoremap <expr><BS> neocomplete#smart_close_popup()."\<C-h>"
 
 " Mapping selecting Mappings
 nmap <leader><tab> <plug>(fzf-maps-n)
@@ -368,7 +505,11 @@ omap <leader><tab> <plug>(fzf-maps-o)
 " Shortcuts
 nnoremap <Leader>o :Files<CR> 
 nnoremap <Leader>O :CtrlP<CR>
+nnoremap <C-p> :CtrlP<CR>
 nnoremap <Leader>w :w<CR>
+nnoremap <leader>tb :CtrlPBufTag<cr>
+nnoremap <leader>ta :CtrlPTag<cr>
+nnoremap <silent> <leader>jd :CtrlPTag<cr><C-\>w
 
 " Insert mode completion
 imap <c-x><c-k> <plug>(fzf-complete-word)
@@ -376,178 +517,330 @@ imap <c-x><c-f> <plug>(fzf-complete-path)
 imap <c-x><c-j> <plug>(fzf-complete-file-ag)
 imap <c-x><c-l> <plug>(fzf-complete-line)
 
-" Vim-Test Mappings
-nmap <silent> <leader>t :TestNearest<CR>
-nmap <silent> <leader>T :TestFile<CR>
-nmap <silent> <leader>a :TestSuite<CR>
-nmap <silent> <leader>l :TestLast<CR>
-nmap <silent> <leader>g :TestVisit<CR>
-
 " Vim-PDV Mappings
-autocmd FileType php inoremap <C-p> <ESC>:call pdv#DocumentWithSnip()<CR>i
-autocmd FileType php nnoremap <C-p> :call pdv#DocumentWithSnip()<CR>
+" autocmd FileType php inoremap <C-p> <ESC>:call pdv#DocumentWithSnip()<CR>i
+" autocmd FileType php nnoremap <C-p> :call pdv#DocumentWithSnip()<CR>
 autocmd FileType php setlocal omnifunc=phpcd#CompletePHP
 
-" Disable arrow movement, resize splits instead.
-if get(g:, 'elite_mode')
-	nnoremap <Up>    :resize +2<CR>
-	nnoremap <Down>  :resize -2<CR>
-	nnoremap <Left>  :vertical resize +2<CR>
-	nnoremap <Right> :vertical resize -2<CR>
-endif
-
-" map <silent> <LocalLeader>ws :highlight clear ExtraWhitespace<CR>
+map <silent> <LocalLeader>ws :highlight clear ExtraWhitespace<CR>
 
 " Advanced customization using autoload functions
 inoremap <expr> <c-x><c-k> fzf#vim#complete#word({'left': '15%'})
 
-" Vim-Alchemist Mappings
-autocmd FileType elixir nnoremap <buffer> <leader>h :call alchemist#exdoc()<CR>
-autocmd FileType elixir nnoremap <buffer> <leader>d :call alchemist#exdef()<CR>
+" Customize Spell Check Highlighting
+hi clear SpellBad
+hi SpellBad cterm=underline
 
-" WIKI configuration
+"GReplace options
+set grepprg=ag
+let g:grep_cmd_opts = '--line-numbers --noheading'
 
-"set nocompatible
-"filetype plugin on
-"syntax on
+" Edit local vimrc file
+nmap <leader>vr :e ~/.vimrc<cr>
 
-au BufRead,BufNewFile *.wiki set filetype=vimwiki
-:autocmd FileType vimwiki map d :VimwikiMakeDiaryNote
-function! ToggleCalendar()
-  execute ":Calendar"
-  if exists("g:calendar_open")
-    if g:calendar_open == 1
-      execute "q"
-      unlet g:calendar_open
-    else
-      g:calendar_open = 1
-    end
-  else
-    let g:calendar_open = 1
-  end
+autocmd cursorhold * set nohlsearch
+autocmd cursormoved * set hlsearch
+
+" Auto-remove trailing spaces
+autocmd BufWritePre *.php :%s/\s\+$//e
+
+""" Laravel
+" Abbreviations
+abbrev mm !php artisan make:model
+abbrev mc !php artisan make:controller
+abbrev mi !php artisan make:migration
+
+
+" Laravel framework commons
+nmap <leader>lr :e routes/web.php<cr>
+nmap <leader>lca :e config/app.php<cr>
+nmap <leader>lcd :e config/database.php<cr>
+nmap <leader>lc :e composer.json<cr>
+nmap <leader>le :e .env<cr>
+nmap <leader>lm :!php artisan make:
+nmap <leader>lmm :!php artisan make:model
+nmap <leader>lmc :!php artisan make:controller
+nmap <leader>lmi :!php artisan make:migration
+
+" Set Laravel blade files to HTML filetype
+autocmd BufRead,BufNewFile *.blade.php set filetype=html
+
+ " Some ESC remappings
+imap jj <ESC><ESC>
+
+" Put search results in the middle of the screen
+nnoremap n nzz
+nnoremap N Nzz
+
+nnoremap <leader>q :q <CR>
+nnoremap <leader>l :!php -l %<CR>
+
+" Run PHPUnit tests
+map <Leader>t :!phpunit %<cr>"
+
+" But we do want to a shortcut for copying to/from System Clipboard
+vmap <Leader>y "+y
+vmap <Leader>d "+d
+nmap <Leader>p "+p
+nmap <Leader>P "+P
+
+" vp doesn't replace paste buffer
+function! RestoreRegister()
+  let @" = s:restore_reg
+  return ''
 endfunction
-:autocmd FileType vimwiki map c :call ToggleCalendar()
+function! s:Repl()
+  let s:restore_reg = @"
+  return "p@=RestoreRegister()\<cr>"
+endfunction
+vmap <silent> <expr> p <sid>Repl()
 
-"------  Buffers  ------
-"" Ctrl Left & Right move between buffers
-noremap <silent> <C-left> :bprev<CR>
-noremap <silent> <C-h> :bprev<CR>
-noremap <silent> <C-right> :bnext<CR>
-noremap <silent> <C-l> :bnext<CR>
+" Mappings for dragvisuals
+ vmap  <expr>  <LEFT>   DVB_Drag('left')
+ vmap  <expr>  <RIGHT>  DVB_Drag('right')
+ vmap  <expr>  <DOWN>   DVB_Drag('down')
+ vmap  <expr>  <UP>     DVB_Drag('up')
+ vmap  <expr>  D        DVB_Duplicate()
 
-" Closes the current buffer
-nnoremap <silent> <Leader>q :Bclose<CR>
-
-" " Closes the current window
-nnoremap <silent> <Leader>Q <C-w>c
-"
-" "------  Fugitive  ------ 
-" "https://github.com/tpope/vim-fugitive
-nnoremap <Leader>gs :Gstatus<CR>
-nnoremap <Leader>gr :Gremove<CR>
-nnoremap <Leader>gl :Glog<CR>
-nnoremap <Leader>gb :Gblame<CR>
-nnoremap <Leader>gm :Gmove 
-nnoremap <Leader>gp :Ggrep 
-nnoremap <Leader>gR :Gread<CR>
-nnoremap <Leader>gg :Git 
-nnoremap <Leader>gd :Gdiff<CR>
-"
-" "------  Moving Between Windows  ------
-nnoremap <Leader>h <C-w>h
-nnoremap <Leader>l <C-w>l
-nnoremap <Leader>j <C-w>j
-nnoremap <Leader>k <C-w>k
-nnoremap <Leader>wo <C-w>o
-nnoremap <Leader>wv <C-w>v<C-w>l
-"nnoremap <Leader>ws <C-w>s
-"nnoremap <Leader>ww <C-w><C-w>
-
-" fuzzy method searching
-nnoremap <Leader>fu :CtrlPFunky<Cr>
-" narrow the list down with a word under cursor
-nnoremap <Leader>fU :execute 'CtrlPFunky ' . expand('<cword>')<Cr>
-
-" ,v = Paste
-map <Leader>v "+gP
-" " ,c = Copy
-map <Leader>c "+y
-" " F2 = Paste Toggle (in insert mode, pasting indented text behavior changes)
-set pastetoggle=<F2>
-" " ,T = Delete all Trailing space in file
-map <Leader>T :%s/\s\+$//<CR>
-" " ,U = Deletes Unwanted empty lines
-map <Leader>U :g/^$/d<CR>
-" " ,R = Converts tabs to spaces in document
-map <Leader>R :retab<CR>
-" " ,p = Runs PHP lint checker on current file
-map <Leader>p :! php -l %<CR>
-" " ,P = Runs PHP and executes the current file
-map <Leader>P :! php -q %<CR>
-" " ,L = Toggle line numbers
-map <Leader>L :set invnumber<CR>
-
-au BufRead,BufNewFile *.php inoremap <buffer> <C-P> :call PhpDoc()<CR>
-au BufRead,BufNewFile *.php nnoremap <buffer> <C-P> :call PhpDoc()<CR>
-au BufRead,BufNewFile *.php vnoremap <buffer> <C-P> :call PhpDocRange()<CR>i
-
-" Enable hard mode to make learning vim faster 
-"let g:hardtime_default_on = 1
-"
-"Custom PHP settings @Jcowie
-" phpDoc
-" Cucumber
-autocmd FileType cucumber noremap <buffer> <LocalLeader>b :w!<CR>:!vendor/bin/behat %<CR>
+" vim-bookmarks
+highlight BookmarkSign ctermbg=NONE ctermfg=160
+highlight BookmarkLine ctermbg=194 ctermfg=NONE
+"let g:bookmark_sign = '♥'
+"let g:bookmark_sign = '•'
+"let g:bookmark_sign = '✔'
+let g:bookmark_highlight_lines = 1
 
 
-" Create split below
-nmap :sp :rightbelow sp<cr>
+" Spell Check
+"nnoremap <leader>s :set spell!
+"nnoremap <leader>f 1z=
+nnoremap <Bslash>d 1z=
 
-highlight Search cterm=underline
+nnoremap <Leader>O :Files<CR> 
+nnoremap <Leader>o :CtrlP<CR>
+nnoremap <Leader>w :w<CR>
+nnoremap <leader>tb :CtrlPBufTag<cr>
+nnoremap <leader>ta :CtrlPTag<cr>
+nnoremap <silent> <leader>jd :CtrlPTag<cr><C-\>w
 
-" Edit todo list for project
-nmap ,todo :e todo.txt<cr>
+" Code folding options
+nmap <leader>f0 :set foldlevel=0<CR>
+nmap <leader>f1 :set foldlevel=1<CR>
+nmap <leader>f2 :set foldlevel=2<CR>
+nmap <leader>f3 :set foldlevel=3<CR>
+nmap <leader>f4 :set foldlevel=4<CR>
+nmap <leader>f5 :set foldlevel=5<CR>
+nmap <leader>f6 :set foldlevel=6<CR>
+nmap <leader>f7 :set foldlevel=7<CR>
+nmap <leader>f8 :set foldlevel=8<CR>
+nmap <leader>f9 :set foldlevel=9<CR>
 
-" Open splits
-nmap vs :vsplit<cr>
-nmap sp :split<cr>
+" Clear search
+nmap <leader>/ :nohlsearch<CR>
 
-" Create/edit file in the current directory
-nmap :ed :edit %:p:h/
+" Find merge conflict markers
+map <leader>fc /\v^[<\|=>]{7}( .*\|$)<CR>
 
-" Prepare a new PHP class
-function! Class()
-    let name = input('Class name? ')
-    let namespace = input('Any Namespace? ')
+" Shortcuts
+" Change Working Directory to that of the current file
+cmap cwd lcd %:p:h
+cmap cd. lcd %:p:h
 
-    if strlen(namespace)
-        exec 'normal i<?php namespace ' . namespace . ';
-    else
-        exec 'normal i<?php
+" Visual shifting (does not exit Visual mode)
+vnoremap < <gv
+vnoremap > >gv
+
+" Allow using the repeat operator with a visual selection (!)
+" http://stackoverflow.com/a/8064607/127816
+vnoremap . :normal .<CR>
+
+" For when you forget to sudo.. Really Write the file.
+cmap w!! w !sudo tee % >/dev/null
+
+" Some helpers to edit mode
+" http://vimcasts.org/e/14
+cnoremap %% <C-R>=fnameescape(expand('%:h')).'/'<cr>
+map <leader>ew :e %%
+map <leader>es :sp %%
+map <leader>ev :vsp %%
+map <leader>et :tabe %%
+
+" Adjust viewports to the same size
+map <Leader>= <C-w>=
+
+" Map <Leader>ff to display all lines with keyword under cursor
+" and ask which one to jump to
+nmap <Leader>ff [I:let nr = input("Which one: ")<Bar>exe "normal " . nr ."[\t"<CR>
+
+" Easier horizontal scrolling
+map zl zL
+map zh zH
+
+" Fugitive
+nnoremap <silent> <leader>gs :Gstatus<CR>
+nnoremap <silent> <leader>gd :Gdiff<CR>
+nnoremap <silent> <leader>gc :Gcommit<CR>
+nnoremap <silent> <leader>gb :Gblame<CR>
+nnoremap <silent> <leader>gl :Glog<CR>
+nnoremap <silent> <leader>gp :Git push<CR>
+nnoremap <silent> <leader>gr :Gread<CR>
+nnoremap <silent> <leader>gw :Gwrite<CR>
+nnoremap <silent> <leader>ge :Gedit<CR>
+" Mnemonic _i_nteractive
+nnoremap <silent> <leader>gi :Git add -p %<CR>
+nnoremap <silent> <leader>gg :SignifyToggle<CR>
+
+
+" Gutentags
+let g:gutentags_cache_dir = '~/.vim/gutentags'
+
+let g:gutentags_ctags_exclude = ['*.css', '*.html', '*.js', '*.json', '*.xml',
+                            \ '*.phar', '*.ini', '*.rst', '*.md',
+                            \ '*vendor/*/test*', '*vendor/*/Test*',
+                            \ '*vendor/*/fixture*', '*vendor/*/Fixture*',
+                            \ '*var/cache*', '*var/log*', '*storage/*']
+
+let g:ctrlp_custom_ignore = 'node_modules\DS_Store\|git'
+
+" php-cs-fixer
+let g:php_cs_fixer_level = "psr2"
+nnoremap <silent><leader>pf :call PhpCsFixerFixFile()<CR>
+
+map <silent> <Leader>cd :cd %:p:h<CR>
+
+set showcmd
+" Shell command {
+function! s:RunShellCommand(cmdline)
+    botright new
+
+    setlocal buftype=nofile
+    setlocal bufhidden=delete
+    setlocal nobuflisted
+    setlocal noswapfile
+    setlocal nowrap
+    setlocal filetype=shell
+    setlocal syntax=shell
+
+    call setline(1, a:cmdline)
+    call setline(2, substitute(a:cmdline, '.', '=', 'g'))
+    execute 'silent $read !' . escape(a:cmdline, '%#')
+    setlocal nomodifiable
+    1
+endfunction
+
+command! -complete=file -nargs=+ Shell call s:RunShellCommand(<q-args>)
+
+" Allot TwitVim to open browser
+let twitvim_browser_cmd = 'open'
+
+" Undotree 
+if has("persistent_undo")
+    set undodir=~/.undodir/
+    set undofile
+endif
+
+if !exists('g:undotree_WindowLayout')
+    let g:undotree_WindowLayout = 3
+endif
+nnoremap <Leader>g :GundoToggle<CR>
+nnoremap <F3> :UndotreeToggle<CR>
+let g:gundo_right = 1
+
+""" Functions
+
+" Initialize directories
+function! InitializeDirectories()
+    let parent = $HOME
+    let prefix = 'vim'
+    let dir_list = {
+                \ 'backup': 'backupdir',
+                \ 'views': 'viewdir',
+                \ 'swap': 'directory' }
+
+    if has('persistent_undo')
+        let dir_list['undo'] = 'undodir'
     endif
 
-    " Open class
-    exec 'normal iclass ' . name . ' {^M}^[O^['
+    let common_dir = parent . '/.' . prefix
 
-    exec 'normal i^M    public function __construct()^M{^M ^M}^['
+    for [dirname, settingname] in items(dir_list)
+        let directory = common_dir . dirname . '/'
+        if exists("*mkdir")
+            if !isdirectory(directory)
+                call mkdir(directory)
+            endif
+        endif
+        if !isdirectory(directory)
+            echo "Warning: Unable to create backup directory: " . directory
+            echo "Try: mkdir -p " . directory
+        else
+            let directory = substitute(directory, " ", "\\\\ ", "g")
+            exec "set " . settingname . "=" . directory
+        endif
+    endfor
 endfunction
-nmap ,1  :call Class()<cr>
+call InitializeDirectories()
 
-" Add a new dependency to a PHP class
-function! AddDependency()
-    let dependency = input('Var Name: ')
-    let namespace = input('Class Path: ')
+" Shell command
+function! s:RunShellCommand(cmdline)
+    botright new
 
-    let segments = split(namespace, '\')
-    let typehint = segments[-1]
+    setlocal buftype=nofile
+    setlocal bufhidden=delete
+    setlocal nobuflisted
+    setlocal noswapfile
+    setlocal nowrap
+    setlocal filetype=shell
+    setlocal syntax=shell
 
-    exec 'normal gg/construct^M:H^Mf)i, ' . typehint . ' $' . dependency . '^[/}^>O$this->^[a' . dependency . ' = $' . dependency . ';^[?{^MkOprotected $' . dependency . ';^M^[?{^MOuse ' . namespace . ';^M^['
-
-    " Remove opening comma if there is only one dependency
-    exec 'normal :%s/(, /(/g
-'
+    call setline(1, a:cmdline)
+    call setline(2, substitute(a:cmdline, '.', '=', 'g'))
+    execute 'silent $read !' . escape(a:cmdline, '%#')
+    setlocal nomodifiable
+    1
 endfunction
-nmap ,2  :call AddDependency()<cr>
+
+command! -complete=file -nargs=+ Shell call s:RunShellCommand(<q-args>)
+
+" Move visual block
+vnoremap J :m '>+1<CR>gv=gv
+vnoremap K :m '<-2<CR>gv=gv
+
+"Change Cursor Shape
+let &t_SI = "\<Esc>]50;CursorShape=1\x7"
+let &t_EI = "\<Esc>]50;CursorShape=0\x7"
+
+" Enter key does a save
+nmap <CR> :write<CR>
 
 
+" Use deoplete.
+let g:deoplete#enable_at_startup = 1
+
+" Omni-completion
+autocmd FileType php setlocal omnifunc=phpactor#Complete
+
+" Include use statement
+map <Leader>u :call phpactor#UseAdd()<CR>
+map <Leader>e :call phpactor#ClassExpand()<CR>
+map <Leader>pp :call phpactor#ContextMenu()<CR>
+map <Leader>o :call phpactor#GotoDefinition()<CR>
+map <Leader>pd :call phpactor#OffsetTypeInfo()<CR>
+map <Leader>pfm :call phpactor#MoveFile()<CR>
+map <Leader>pfc :call phpactor#CopyFile()<CR>
+map <Leader>tt :call phpactor#Transform()<CR>
+map <Leader>cc :call phpactor#ClassNew()<CR>
+map <Leader>fr :call phpactor#FindReferences()<CR>
+
+" Show information about "type" under cursor including current frame
+nnoremap <silent><Leader>d :call phpactor#OffsetTypeInfo()<CR>
+
+
+" Wildfire Mappings
+" This selects the next closest text object.
+" map <C-SPACE> <Plug>(wildfire-fuel)
+
+" This selects the previous closest text object.
+" vmap <A-SPACE> <Plug>(wildfire-water)
+"
 
