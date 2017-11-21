@@ -129,6 +129,7 @@ Plugin 'rhysd/conflict-marker.vim'
 Plugin 'mattesgroeger/vim-bookmarks'
 Plugin 'ludovicchabant/vim-gutentags'
 Plugin 'vimwiki/vimwiki'
+Plugin 'parkr/vim-jekyll'
 
 Plugin 'Shougo/deoplete.nvim'
 Plugin 'phpactor/phpactor'
@@ -215,9 +216,9 @@ let base16colorspace=256  " Access colors present in 256 colorspace
 " colorscheme atom-dark-256
 " let g:alduin_Shout_Become_Ethereal = 1
 " colorscheme alduin
-" colorscheme gruvbox
+colorscheme gruvbox
 " colorscheme distinguished
-colorscheme molokai
+" colorscheme molokai
 
 
 hi Normal ctermbg=none
@@ -843,4 +844,4 @@ nnoremap <silent><Leader>d :call phpactor#OffsetTypeInfo()<CR>
 " This selects the previous closest text object.
 " vmap <A-SPACE> <Plug>(wildfire-water)
 "
-
+map <F3> :r! date +"\%Y-\%m-\%d \%H:\%M:\%S"<ESC>0=j 
